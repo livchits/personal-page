@@ -27,7 +27,11 @@ module.exports = {
         'monospace',
       ],
     },
-    extend: {},
+    extend: {
+      colors: {
+        canary: '#E5FA68',
+      },
+    },
   },
   variants: {},
   plugins: [],
