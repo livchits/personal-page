@@ -1,16 +1,4 @@
 {
-  "scripts": {
-    "dev": "npx parcel src/index.html",
-    "prod": "npx parcel build src/index.html",
-    "build": "npx parcel build src/index.html"
-  },
-  "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^2.3.0",
-    "autoprefixer": "^9.8.0",
-    "parcel-bundler": "^1.12.4",
-    "postcss": "^7.0.32",
-    "tailwindcss": "^1.4.6"
-  },
   "name": "personal-page",
   "version": "1.0.0",
   "description": "My personal page and portfolio",
@@ -18,5 +6,16 @@
   "dependencies": {},
   "author": "Lucas Livchits <livchitsl@gmail.com>",
   "license": "MIT",
-  "keywords": []
+  "keywords": [],
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^2.3.0",
+    "autoprefixer": "^9.8.0",
+    "parcel-bundler": "^1.12.4",
+    "postcss": "^7.0.32",
+    "tailwindcss": "^1.4.6"
+  }
 }
