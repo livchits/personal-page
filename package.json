@@ -9,6 +9,7 @@
   "keywords": [],
   "scripts": {
     "dev": "parcel src/index.html --open",
+    "clean": "rm -rf dist/*",
     "build": "parcel build src/index.html"
   },
   "devDependencies": {
