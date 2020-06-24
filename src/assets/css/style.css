@@ -1,6 +1,11 @@
 /* purgecss start ignore */
-@tailwind  base;
-@tailwind  components;
+@tailwind base;
+@tailwind components;
+
+.card-button {
+  @apply mr-4 text-center text-xl text-green-200 font-bold p-2 bg-gray-800 border-2 border-gray-800 flex justify-center shadow-md;
+}
+
 /* purgecss end ignore */
 
-@tailwind  utilities;
+@tailwind utilities;
