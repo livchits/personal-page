@@ -22,7 +22,7 @@
     <nav
       class="bg-canary text-2xl font-semibold py-4 sticky top-0 z-10 shadow-md w-full"
     >
-      <button class="block mx-auto">
+      <button class="block mx-auto md:hidden">
         <svg
           class="fill-current h-12 w-12"
           xmlns="http://www.w3.org/2000/svg"
@@ -34,10 +34,12 @@
           />
         </svg>
       </button>
-      <ul class="text-center py-4 text-shadow caps-small hidden">
-        <li class="py-4"><a href="">Hello</a></li>
-        <li class="py-4"><a href="">Projects</a></li>
-        <li class="py-4"><a href="">Contact</a></li>
+      <ul
+        class="text-center text-shadow caps-small hidden mr-10 md:flex justify-end"
+      >
+        <li class="py-2 px-6"><a href="">Projects</a></li>
+        <li class="py-2 px-6"><a href="">Contact</a></li>
+        <li class="py-2 px-6"><a href="">Hello</a></li>
       </ul>
     </nav>
     <section
