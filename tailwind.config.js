@@ -1,6 +1,14 @@
 module.exports = {
   purge: false,
   theme: {
+    extend: {
+      colors: {
+        canary: '#E5FA68',
+      },
+      width: {
+        '12/25': '48%',
+      },
+    },
     fontFamily: {
       sans: [
         'Roboto',
@@ -179,38 +187,29 @@ module.exports = {
         },
       },
     }),
-    extend: {
-      colors: {
-        canary: '#E5FA68',
-      },
-      width: {
-        '12/25': '48%',
-      },
-    },
-
-    variants: {
-      textIndent: ['responsive'],
-      textShadow: ['responsive'],
-      textDecorationStyle: ['responsive'],
-      textDecorationColor: ['responsive'],
-      ellipsis: ['responsive'],
-      hyphens: ['responsive'],
-      kerning: ['responsive'],
-      textUnset: ['responsive'],
-      fontVariantCaps: ['responsive'],
-      fontVariantNumeric: ['responsive'],
-      fontVariantLigatures: ['responsive'],
-      textRendering: ['responsive'],
-    },
-    plugins: [
-      require('tailwindcss-typography')({
-        // all these options default to the values specified here
-        ellipsis: true, // whether to generate ellipsis utilities
-        hyphens: true, // whether to generate hyphenation utilities
-        kerning: true, // whether to generate kerning utilities
-        textUnset: true, // whether to generate utilities to unset text properties
-        componentPrefix: 'c-', // the prefix to use for text style classes
-      }),
-    ],
   },
+  variants: {
+    textIndent: ['responsive'],
+    textShadow: ['responsive'],
+    textDecorationStyle: ['responsive'],
+    textDecorationColor: ['responsive'],
+    ellipsis: ['responsive'],
+    hyphens: ['responsive'],
+    kerning: ['responsive'],
+    textUnset: ['responsive'],
+    fontVariantCaps: ['responsive'],
+    fontVariantNumeric: ['responsive'],
+    fontVariantLigatures: ['responsive'],
+    textRendering: ['responsive'],
+  },
+  plugins: [
+    require('tailwindcss-typography')({
+      // all these options default to the values specified here
+      ellipsis: true, // whether to generate ellipsis utilities
+      hyphens: true, // whether to generate hyphenation utilities
+      kerning: true, // whether to generate kerning utilities
+      textUnset: true, // whether to generate utilities to unset text properties
+      componentPrefix: 'c-', // the prefix to use for text style classes
+    }),
+  ],
 };
