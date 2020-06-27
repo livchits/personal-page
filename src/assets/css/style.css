@@ -6,6 +6,18 @@
   @apply text-center text-xl text-green-200 font-bold p-2 bg-gray-800 border-2 border-gray-800 flex justify-center items-center shadow-md;
 }
 
+.bio-button {
+  @apply p-2 bg-gray-800 text-canary text-center font-bold my-3 shadow-md border-gray-800 border-2 transition-colors duration-500 ease-in-out;
+}
+
+.bio-button:hover {
+  @apply bg-transparent text-gray-800 border-gray-800;
+}
+
+.bio-button:focus {
+  @apply shadow-outline;
+}
+
 /* purgecss end ignore */
 
 @tailwind utilities;
