@@ -3,7 +3,15 @@
 @tailwind components;
 
 .card-button {
-  @apply text-center text-xl text-green-200 font-bold p-2 bg-gray-800 border-2 border-gray-800 flex justify-center items-center shadow-md;
+  @apply text-center text-xl text-green-200 font-bold p-2 bg-gray-800 border-2 border-gray-800 flex justify-center items-center shadow-md transition-colors duration-500 ease-in-out;
+}
+
+.card-button:hover {
+  @apply bg-transparent text-gray-800 border-gray-800;
+}
+
+.card-button:focus {
+  @apply shadow-outline;
 }
 
 .bio-button {
