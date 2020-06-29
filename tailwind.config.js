@@ -187,6 +187,70 @@ module.exports = {
         },
       },
     }),
+    animations: {
+      // defaults to {}; the following are examples
+      blink: {
+        '0%': { opacity: 1 },
+        '50%': { opacity: 0 },
+        '100%': { opacity: 1 },
+      },
+    },
+    animationDuration: {
+      // defaults to these values
+      default: '1s',
+      '0s': '0s',
+      '1s': '1s',
+      '2s': '2s',
+      '3s': '3s',
+      '4s': '4s',
+      '5s': '5s',
+    },
+    animationTimingFunction: {
+      // defaults to these values
+      default: 'ease',
+      linear: 'linear',
+      ease: 'ease',
+      'ease-in': 'ease-in',
+      'ease-out': 'ease-out',
+      'ease-in-out': 'ease-in-out',
+    },
+    animationDelay: {
+      // defaults to these values
+      default: '0s',
+      '0s': '0s',
+      '1s': '1s',
+      '2s': '2s',
+      '3s': '3s',
+      '4s': '4s',
+      '5s': '5s',
+    },
+    animationIterationCount: {
+      // defaults to these values
+      default: 'infinite',
+      once: '1',
+      infinite: 'infinite',
+    },
+    animationDirection: {
+      // defaults to these values
+      default: 'normal',
+      normal: 'normal',
+      reverse: 'reverse',
+      alternate: 'alternate',
+      'alternate-reverse': 'alternate-reverse',
+    },
+    animationFillMode: {
+      // defaults to these values
+      default: 'none',
+      none: 'none',
+      forwards: 'forwards',
+      backwards: 'backwards',
+      both: 'both',
+    },
+    animationPlayState: {
+      // defaults to these values
+      running: 'running',
+      paused: 'paused',
+    },
   },
   variants: {
     textIndent: ['responsive'],
@@ -201,6 +265,14 @@ module.exports = {
     fontVariantNumeric: ['responsive'],
     fontVariantLigatures: ['responsive'],
     textRendering: ['responsive'],
+    animations: ['responsive', 'hover', 'group-hover'],
+    animationDuration: ['responsive', 'hover', 'group-hover'],
+    animationTimingFunction: ['responsive', 'hover', 'group-hover'],
+    animationDelay: ['responsive', 'hover', 'group-hover'],
+    animationIterationCount: ['responsive', 'hover', 'group-hover'],
+    animationDirection: ['responsive', 'hover', 'group-hover'],
+    animationFillMode: ['responsive', 'hover', 'group-hover'],
+    animationPlayState: ['responsive', 'hover', 'group-hover'],
   },
   plugins: [
     require('tailwindcss-typography')({
@@ -211,5 +283,6 @@ module.exports = {
       textUnset: true, // whether to generate utilities to unset text properties
       componentPrefix: 'c-', // the prefix to use for text style classes
     }),
+    require('tailwindcss-animations'),
   ],
 };
