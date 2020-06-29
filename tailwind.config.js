@@ -44,6 +44,7 @@ module.exports = {
       // defaults to {}
       default: '0 2px 5px rgba(0, 0, 0, 0.5)',
       lg: '0 2px 10px rgba(0, 0, 0, 0.5)',
+      none: 'none',
     },
     textDecorationStyle: {
       // defaults to these values
