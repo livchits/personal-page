@@ -25,3 +25,10 @@ function toggleNav() {
 }
 
 menuToggle.addEventListener('click', toggleNav);
+
+//hide menu after click
+navLinks.addEventListener('click', (e) => {
+  if (e.target.tagName === 'A') {
+    toggleNav();
+  }
+});
