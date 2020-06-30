@@ -15,3 +15,13 @@ function highlightLinks() {
 }
 
 window.addEventListener('hashchange', highlightLinks);
+
+//toggle menu in mobile
+const menuToggle = document.getElementById('menu-toggle');
+const navLinks = document.getElementById('nav-links');
+
+function toggleNav() {
+  navLinks.classList.toggle('hidden');
+}
+
+menuToggle.addEventListener('click', toggleNav);
