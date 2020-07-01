@@ -285,5 +285,13 @@ module.exports = {
       componentPrefix: 'c-', // the prefix to use for text style classes
     }),
     require('tailwindcss-animations'),
+    require('tailwindcss-animatecss')({
+      classes: ['animate__animated', 'animate__fadeInDown'],
+      settings: {
+        animatedSpeed: 1000,
+        animationDelaySpeed: 1000,
+      },
+      variants: ['responsive', 'hover', 'reduced-motion'],
+    }),
   ],
 };
