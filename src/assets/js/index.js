@@ -32,3 +32,17 @@ navLinks.addEventListener('click', (e) => {
     toggleNav();
   }
 });
+
+//change navbar background on scroll
+const projects = document.getElementById('projects');
+const bio = document.getElementById('bio');
+const projectsBackgroundColor = getComputedStyle(projects)['background-color'];
+const navbarDefaultBgColor = getComputedStyle(navbar)['background-color'];
+
+document.addEventListener('scroll', () => {
+  if (pageYOffset >= bio.offsetHeight) {
+    navbar.style.backgroundColor = projectsBackgroundColor;
+  } else {
+    navbar.style.backgroundColor = navbarDefaultBgColor;
+  }
+});
