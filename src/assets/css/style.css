@@ -15,7 +15,7 @@
 }
 
 .bio-button {
-  @apply p-2 bg-gray-800 text-canary text-center text-2xl font-bold my-3 shadow-md border-gray-800 border-2 transition-colors duration-500 ease-in-out;
+  @apply p-2 bg-gray-800 text-canary text-center text-2xl my-3 shadow-md border-gray-800 border-2 transition-colors duration-500 ease-in-out;
 }
 
 .bio-button:hover {
