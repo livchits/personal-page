@@ -33,14 +33,18 @@ navLinks.addEventListener('click', (e) => {
 //change navbar background on scroll
 const projects = document.getElementById('projects');
 const bio = document.getElementById('bio');
-const projectsBackgroundColor = getComputedStyle(projects)['background-color'];
+const projectsBackgroundColor = getComputedStyle(projects).getPropertyValue(
+  'background-color'
+);
 const navbar = document.querySelector('nav');
-const navbarDefaultBgColor = getComputedStyle(navbar)['background-color'];
+const navbarDefaultBgColor = getComputedStyle(navbar).getPropertyValue(
+  'background-color'
+);
 
 document.addEventListener('scroll', () => {
   if (pageYOffset >= bio.offsetHeight) {
-    navbar.style.backgroundColor = projectsBackgroundColor;
+    navbar.style.setProperty('background-color', projectsBackgroundColor);
   } else {
-    navbar.style.backgroundColor = navbarDefaultBgColor;
+    navbar.style.setProperty('background-color', navbarDefaultBgColor);
   }
 });
