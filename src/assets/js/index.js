@@ -48,7 +48,7 @@ function setElementBackgroundColor(element, color) {
 document.addEventListener('scroll', () => {
   if (pageYOffset >= bio.offsetHeight) {
     setElementBackgroundColor(navbar, projectsBackgroundColor);
-  } else {
-    setElementBackgroundColor(navbar, navbarDefaultBgColor);
+    return;
   }
+  setElementBackgroundColor(navbar, navbarDefaultBgColor);
 });
