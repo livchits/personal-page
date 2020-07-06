@@ -41,10 +41,14 @@ const navbarDefaultBgColor = getComputedStyle(navbar).getPropertyValue(
   'background-color'
 );
 
+function setElementBackgroundColor(element, color) {
+  element.style.setProperty('background-color', color);
+}
+
 document.addEventListener('scroll', () => {
   if (pageYOffset >= bio.offsetHeight) {
-    navbar.style.setProperty('background-color', projectsBackgroundColor);
+    setElementBackgroundColor(navbar, projectsBackgroundColor);
   } else {
-    navbar.style.setProperty('background-color', navbarDefaultBgColor);
+    setElementBackgroundColor(navbar, navbarDefaultBgColor);
   }
 });
