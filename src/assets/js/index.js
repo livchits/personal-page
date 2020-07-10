@@ -46,8 +46,13 @@ function setElementBackgroundColor(element, color) {
 }
 
 document.addEventListener('scroll', () => {
+  navbar.classList.remove('md:-mt-20');
   if (pageYOffset >= bio.offsetHeight) {
     setElementBackgroundColor(navbar, projectsBackgroundColor);
+    return;
+  }
+  if (pageYOffset < navbar.offsetHeight) {
+    navbar.classList.add('md:-mt-20');
     return;
   }
   setElementBackgroundColor(navbar, navbarDefaultBgColor);
