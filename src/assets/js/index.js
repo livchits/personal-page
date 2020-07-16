@@ -53,12 +53,15 @@ document.addEventListener('scroll', () => {
   navbar.classList.remove('md:-mt-20');
   if (
     pageYOffset >= bio.offsetHeight - navbar.offsetHeight / 2 &&
-    pageYOffset < bio.offsetHeight + projects.offsetHeight
+    pageYOffset < bio.offsetHeight + projects.offsetHeight - navbar.offsetHeight
   ) {
     setElementBackgroundColor(navbar, projectsBackgroundColor);
     return;
   }
-  if (pageYOffset >= bio.offsetHeight + projects.offsetHeight - 500) {
+  if (
+    pageYOffset >=
+    bio.offsetHeight + projects.offsetHeight - navbar.offsetHeight
+  ) {
     setElementBackgroundColor(navbar, skillsBackgroundColor);
     return;
   }
