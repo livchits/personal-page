@@ -33,7 +33,11 @@ navLinks.addEventListener('click', (e) => {
 //change navbar background on scroll
 const projects = document.getElementById('projects');
 const bio = document.getElementById('bio');
+const skills = document.getElementById('skills');
 const projectsBackgroundColor = getComputedStyle(projects).getPropertyValue(
+  'background-color'
+);
+const skillsBackgroundColor = getComputedStyle(skills).getPropertyValue(
   'background-color'
 );
 const navbar = document.querySelector('nav');
@@ -47,8 +51,15 @@ function setElementBackgroundColor(element, color) {
 
 document.addEventListener('scroll', () => {
   navbar.classList.remove('md:-mt-20');
-  if (pageYOffset >= bio.offsetHeight - navbar.offsetHeight / 2) {
+  if (
+    pageYOffset >= bio.offsetHeight - navbar.offsetHeight / 2 &&
+    pageYOffset < bio.offsetHeight + projects.offsetHeight
+  ) {
     setElementBackgroundColor(navbar, projectsBackgroundColor);
+    return;
+  }
+  if (pageYOffset >= bio.offsetHeight + projects.offsetHeight - 500) {
+    setElementBackgroundColor(navbar, skillsBackgroundColor);
     return;
   }
   if (pageYOffset < navbar.offsetHeight) {
