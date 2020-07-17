@@ -36,14 +36,12 @@ const bio = document.getElementById('bio');
 const skills = document.getElementById('skills');
 const navbar = document.querySelector('nav');
 
-const projectsBackgroundColor = getComputedStyle(projects).getPropertyValue(
-  'background-color'
-);
-const skillsBackgroundColor = getComputedStyle(skills).getPropertyValue(
-  'background-color'
-);
-const navbarDefaultBgColor = getComputedStyle(navbar).getPropertyValue(
-  'background-color'
+const [navbarDefaultBgColor, projectsBackgroundColor, skillsBackgroundColor] = [
+  navbar,
+  projects,
+  skills,
+].map((element) =>
+  getComputedStyle(element).getPropertyValue('background-color')
 );
 
 function setElementBackgroundColor(element, color) {
