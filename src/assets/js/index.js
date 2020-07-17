@@ -34,13 +34,14 @@ navLinks.addEventListener('click', (e) => {
 const projects = document.getElementById('projects');
 const bio = document.getElementById('bio');
 const skills = document.getElementById('skills');
+const navbar = document.querySelector('nav');
+
 const projectsBackgroundColor = getComputedStyle(projects).getPropertyValue(
   'background-color'
 );
 const skillsBackgroundColor = getComputedStyle(skills).getPropertyValue(
   'background-color'
 );
-const navbar = document.querySelector('nav');
 const navbarDefaultBgColor = getComputedStyle(navbar).getPropertyValue(
   'background-color'
 );
@@ -49,25 +50,30 @@ function setElementBackgroundColor(element, color) {
   element.style.setProperty('background-color', color);
 }
 
-document.addEventListener('scroll', () => {
-  navbar.classList.remove('md:-mt-20');
+function changeNavbarBackgroundColor() {
   if (
     pageYOffset >= bio.offsetHeight - navbar.offsetHeight / 2 &&
-    pageYOffset < bio.offsetHeight + projects.offsetHeight - navbar.offsetHeight
+    pageYOffset < bio.offsetHeight + projects.offsetHeight - navbar.offsetHeight //user scrolled almost to projects section
   ) {
     setElementBackgroundColor(navbar, projectsBackgroundColor);
     return;
   }
   if (
     pageYOffset >=
-    bio.offsetHeight + projects.offsetHeight - navbar.offsetHeight
+    bio.offsetHeight + projects.offsetHeight - navbar.offsetHeight //user scrolled in projects section
   ) {
     setElementBackgroundColor(navbar, skillsBackgroundColor);
     return;
   }
   if (pageYOffset < navbar.offsetHeight) {
+    //user scrolled to the top
     navbar.classList.add('md:-mt-20');
     return;
   }
   setElementBackgroundColor(navbar, navbarDefaultBgColor);
+}
+
+document.addEventListener('scroll', () => {
+  navbar.classList.remove('md:-mt-20');
+  changeNavbarBackgroundColor();
 });
