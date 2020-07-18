@@ -40,9 +40,14 @@ const [navbarDefaultBgColor, projectsBackgroundColor, skillsBackgroundColor] = [
   navbar,
   projects,
   skills,
-].map((element) =>
-  getComputedStyle(element).getPropertyValue('background-color')
-);
+].map(getBackgroundColor);
+
+function getBackgroundColor(element) {
+  const backgroundColor = getComputedStyle(element).getPropertyValue(
+    'background-color'
+  );
+  return backgroundColor;
+}
 
 function setElementBackgroundColor(element, color) {
   element.style.setProperty('background-color', color);
