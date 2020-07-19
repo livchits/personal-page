@@ -1,3 +1,17 @@
+//select elements
+const selectors = [
+  '#menu-toggle',
+  'nav-links',
+  'nav',
+  '#bio',
+  '#projects',
+  '#skills',
+];
+const getElement = (selector) => document.querySelector(selector);
+const [menuToggle, navLinks, navbar, bio, projects, skills] = selectors.map(
+  getElement
+);
+
 //highlight active menu
 function highlightLinks() {
   const actualSection = window.location.hash;
@@ -14,9 +28,6 @@ function highlightLinks() {
 window.addEventListener('hashchange', highlightLinks);
 
 //toggle menu in mobile
-const menuToggle = document.getElementById('menu-toggle');
-const navLinks = document.getElementById('nav-links');
-
 function toggleNav() {
   navLinks.classList.toggle('hidden');
 }
@@ -31,17 +42,6 @@ navLinks.addEventListener('click', (e) => {
 });
 
 //change navbar background on scroll
-const projects = document.getElementById('projects');
-const bio = document.getElementById('bio');
-const skills = document.getElementById('skills');
-const navbar = document.querySelector('nav');
-
-const [navbarDefaultBgColor, projectsBackgroundColor, skillsBackgroundColor] = [
-  navbar,
-  projects,
-  skills,
-].map(getBackgroundColor);
-
 function getBackgroundColor(element) {
   const backgroundColor = getComputedStyle(element).getPropertyValue(
     'background-color'
@@ -75,6 +75,12 @@ function changeNavbarBackgroundColor() {
   }
   setElementBackgroundColor(navbar, navbarDefaultBgColor);
 }
+
+const [navbarDefaultBgColor, projectsBackgroundColor, skillsBackgroundColor] = [
+  navbar,
+  projects,
+  skills,
+].map(getBackgroundColor);
 
 document.addEventListener('scroll', () => {
   navbar.classList.remove('md:-mt-20');
