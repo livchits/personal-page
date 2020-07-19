@@ -1,7 +1,7 @@
 //select elements
 const selectors = [
   '#menu-toggle',
-  'nav-links',
+  '#nav-links',
   'nav',
   '#bio',
   '#projects',
