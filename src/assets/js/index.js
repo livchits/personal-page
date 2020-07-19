@@ -8,7 +8,7 @@ const selectors = [
   '#skills',
 ];
 const getElement = (selector) => document.querySelector(selector);
-const [menuToggle, navLinks, navbar, bio, projects, skills] = selectors.map(
+const [menuToggle, navLinks, nav, bio, projects, skills] = selectors.map(
   getElement
 );
 
@@ -41,7 +41,7 @@ navLinks.addEventListener('click', (e) => {
   }
 });
 
-//change navbar background on scroll
+//change nav background on scroll
 function getBackgroundColor(element) {
   const backgroundColor = getComputedStyle(element).getPropertyValue(
     'background-color'
@@ -53,42 +53,42 @@ function setElementBackgroundColor(element, color) {
   element.style.setProperty('background-color', color);
 }
 
-const [navbarDefaultBgColor, projectsBackgroundColor, skillsBackgroundColor] = [
-  navbar,
+const [navDefaultBgColor, projectsBackgroundColor, skillsBackgroundColor] = [
+  nav,
   projects,
   skills,
 ].map(getBackgroundColor);
 
 const [
-  { offsetHeight: navbarHeight },
+  { offsetHeight: navHeight },
   { offsetHeight: bioHeight },
   { offsetHeight: projectsHeight },
-] = [navbar, bio, projects];
+] = [nav, bio, projects];
 
-function changeNavbarBackgroundColor() {
+function changeNavBackgroundColor() {
   if (
-    pageYOffset >= bioHeight - navbarHeight / 2 &&
-    pageYOffset < bioHeight + projectsHeight - navbarHeight //user scrolled almost to projects section
+    pageYOffset >= bioHeight - navHeight / 2 &&
+    pageYOffset < bioHeight + projectsHeight - navHeight //user scrolled almost to projects section
   ) {
-    setElementBackgroundColor(navbar, projectsBackgroundColor);
+    setElementBackgroundColor(nav, projectsBackgroundColor);
     return;
   }
   if (
     pageYOffset >=
-    bioHeight + projectsHeight - navbarHeight //user scrolled in projects section
+    bioHeight + projectsHeight - navHeight //user scrolled in projects section
   ) {
-    setElementBackgroundColor(navbar, skillsBackgroundColor);
+    setElementBackgroundColor(nav, skillsBackgroundColor);
     return;
   }
-  if (pageYOffset < navbarHeight) {
+  if (pageYOffset < navHeight) {
     //user scrolled to the top
-    navbar.classList.add('md:-mt-20');
+    nav.classList.add('md:-mt-20');
     return;
   }
-  setElementBackgroundColor(navbar, navbarDefaultBgColor);
+  setElementBackgroundColor(nav, navDefaultBgColor);
 }
 
 document.addEventListener('scroll', () => {
-  navbar.classList.remove('md:-mt-20');
-  changeNavbarBackgroundColor();
+  nav.classList.remove('md:-mt-20');
+  changeNavBackgroundColor();
 });
