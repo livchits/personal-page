@@ -59,22 +59,28 @@ const [navbarDefaultBgColor, projectsBackgroundColor, skillsBackgroundColor] = [
   skills,
 ].map(getBackgroundColor);
 
+const [
+  { offsetHeight: navbarHeight },
+  { offsetHeight: bioHeight },
+  { offsetHeight: projectsHeight },
+] = [navbar, bio, projects];
+
 function changeNavbarBackgroundColor() {
   if (
-    pageYOffset >= bio.offsetHeight - navbar.offsetHeight / 2 &&
-    pageYOffset < bio.offsetHeight + projects.offsetHeight - navbar.offsetHeight //user scrolled almost to projects section
+    pageYOffset >= bioHeight - navbarHeight / 2 &&
+    pageYOffset < bioHeight + projectsHeight - navbarHeight //user scrolled almost to projects section
   ) {
     setElementBackgroundColor(navbar, projectsBackgroundColor);
     return;
   }
   if (
     pageYOffset >=
-    bio.offsetHeight + projects.offsetHeight - navbar.offsetHeight //user scrolled in projects section
+    bioHeight + projectsHeight - navbarHeight //user scrolled in projects section
   ) {
     setElementBackgroundColor(navbar, skillsBackgroundColor);
     return;
   }
-  if (pageYOffset < navbar.offsetHeight) {
+  if (pageYOffset < navbarHeight) {
     //user scrolled to the top
     navbar.classList.add('md:-mt-20');
     return;
