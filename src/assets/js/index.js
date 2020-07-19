@@ -53,6 +53,12 @@ function setElementBackgroundColor(element, color) {
   element.style.setProperty('background-color', color);
 }
 
+const [navbarDefaultBgColor, projectsBackgroundColor, skillsBackgroundColor] = [
+  navbar,
+  projects,
+  skills,
+].map(getBackgroundColor);
+
 function changeNavbarBackgroundColor() {
   if (
     pageYOffset >= bio.offsetHeight - navbar.offsetHeight / 2 &&
@@ -75,12 +81,6 @@ function changeNavbarBackgroundColor() {
   }
   setElementBackgroundColor(navbar, navbarDefaultBgColor);
 }
-
-const [navbarDefaultBgColor, projectsBackgroundColor, skillsBackgroundColor] = [
-  navbar,
-  projects,
-  skills,
-].map(getBackgroundColor);
 
 document.addEventListener('scroll', () => {
   navbar.classList.remove('md:-mt-20');
