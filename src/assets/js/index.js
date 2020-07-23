@@ -1,3 +1,17 @@
+//select elements
+const selectors = [
+  '#menu-toggle',
+  '#nav-links',
+  'nav',
+  '#bio',
+  '#projects',
+  '#skills',
+];
+const getElement = (selector) => document.querySelector(selector);
+const [menuToggle, navLinks, nav, bio, projects, skills] = selectors.map(
+  getElement
+);
+
 //highlight active menu
 function highlightLinks() {
   const actualSection = window.location.hash;
@@ -14,9 +28,6 @@ function highlightLinks() {
 window.addEventListener('hashchange', highlightLinks);
 
 //toggle menu in mobile
-const menuToggle = document.getElementById('menu-toggle');
-const navLinks = document.getElementById('nav-links');
-
 function toggleNav() {
   navLinks.classList.toggle('hidden');
 }
@@ -30,30 +41,54 @@ navLinks.addEventListener('click', (e) => {
   }
 });
 
-//change navbar background on scroll
-const projects = document.getElementById('projects');
-const bio = document.getElementById('bio');
-const projectsBackgroundColor = getComputedStyle(projects).getPropertyValue(
-  'background-color'
-);
-const navbar = document.querySelector('nav');
-const navbarDefaultBgColor = getComputedStyle(navbar).getPropertyValue(
-  'background-color'
-);
+//change nav background on scroll
+function getBackgroundColor(element) {
+  const backgroundColor = getComputedStyle(element).getPropertyValue(
+    'background-color'
+  );
+  return backgroundColor;
+}
 
 function setElementBackgroundColor(element, color) {
   element.style.setProperty('background-color', color);
 }
 
+const [navDefaultBgColor, projectsBackgroundColor, skillsBackgroundColor] = [
+  nav,
+  projects,
+  skills,
+].map(getBackgroundColor);
+
+const [
+  { offsetHeight: navHeight },
+  { offsetHeight: bioHeight },
+  { offsetHeight: projectsHeight },
+] = [nav, bio, projects];
+
+function changeNavBackgroundColor() {
+  if (
+    pageYOffset >= bioHeight - navHeight / 2 &&
+    pageYOffset < bioHeight + projectsHeight - navHeight //user scrolled almost to projects section
+  ) {
+    setElementBackgroundColor(nav, projectsBackgroundColor);
+    return;
+  }
+  if (
+    pageYOffset >=
+    bioHeight + projectsHeight - navHeight //user scrolled in projects section
+  ) {
+    setElementBackgroundColor(nav, skillsBackgroundColor);
+    return;
+  }
+  if (pageYOffset < navHeight) {
+    //user scrolled to the top
+    nav.classList.add('md:-mt-20');
+    return;
+  }
+  setElementBackgroundColor(nav, navDefaultBgColor);
+}
+
 document.addEventListener('scroll', () => {
-  navbar.classList.remove('md:-mt-20');
-  if (pageYOffset >= bio.offsetHeight - navbar.offsetHeight / 2) {
-    setElementBackgroundColor(navbar, projectsBackgroundColor);
-    return;
-  }
-  if (pageYOffset < navbar.offsetHeight) {
-    navbar.classList.add('md:-mt-20');
-    return;
-  }
-  setElementBackgroundColor(navbar, navbarDefaultBgColor);
+  nav.classList.remove('md:-mt-20');
+  changeNavBackgroundColor();
 });
