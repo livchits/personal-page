@@ -11,7 +11,7 @@
 }
 
 .card-button:focus {
-  @apply shadow-outline;
+  @apply ring;
 }
 
 .bio-button {
@@ -23,7 +23,7 @@
 }
 
 .bio-button:focus {
-  @apply shadow-outline;
+  @apply ring;
 }
 
 /* purgecss end ignore */
