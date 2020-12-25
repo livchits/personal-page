@@ -126,6 +126,9 @@ module.exports = {
       width: {
         '12/25': '48%',
       },
+      fontSize: {
+        '6xl': '4rem',
+      },
     },
     fontFamily: {
       sans: [
