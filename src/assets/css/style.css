@@ -1,34 +1,35 @@
 /* purgecss start ignore */
 @tailwind base;
 @tailwind components;
-
-.card-button {
-  @apply text-center text-xl text-green-200 font-bold p-2 bg-gray-800 border-2 border-gray-800 flex justify-center items-center shadow-md transition-colors duration-500 ease-in-out;
-}
-
-.card-button:hover {
-  @apply bg-transparent text-gray-800 border-gray-800;
-}
-
-.card-button:focus {
-  @apply ring;
-}
-
-.bio-button {
-  @apply bg-gray-800 text-canary text-center text-2xl my-3 shadow-md border-gray-800 border-2 transition-colors duration-500 ease-in-out;
-}
-
-.bio-button:hover {
-  @apply bg-transparent text-gray-800 border-gray-800;
-}
-
-.bio-button:focus {
-  @apply ring;
-}
-
 /* purgecss end ignore */
 
 @tailwind utilities;
+
+@layer components {
+  .card-button {
+    @apply text-center text-xl text-green-200 font-bold p-2 bg-gray-800 border-2 border-gray-800 flex justify-center items-center shadow-md transition-colors duration-500 ease-in-out;
+  }
+
+  .card-button:hover {
+    @apply bg-transparent text-gray-800 border-gray-800;
+  }
+
+  .card-button:focus {
+    @apply ring;
+  }
+
+  .bio-button {
+    @apply bg-gray-800 text-canary text-center text-2xl my-3 shadow-md border-gray-800 border-2 transition-colors duration-500 ease-in-out;
+  }
+
+  .bio-button:hover {
+    @apply bg-transparent text-gray-800 border-gray-800;
+  }
+
+  .bio-button:focus {
+    @apply ring;
+  }
+}
 
 @responsive {
   .scroll-smooth {
