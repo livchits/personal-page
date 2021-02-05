@@ -75,7 +75,7 @@ function changeNavBackgroundColor() {
   }
   if (
     pageYOffset >=
-    bioHeight + projectsHeight - navHeight //user scrolled in projects section
+    bioHeight + projectsHeight //- navHeight //user scrolled in projects section
   ) {
     setElementBackgroundColor(nav, skillsBackgroundColor);
     return;
