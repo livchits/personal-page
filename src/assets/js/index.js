@@ -80,15 +80,22 @@ function changeNavBackgroundColor() {
     setElementBackgroundColor(nav, skillsBackgroundColor);
     return;
   }
-  if (pageYOffset < navHeight) {
-    //user scrolled to the top
-    nav.classList.add('md:-mt-20');
-    return;
-  }
   setElementBackgroundColor(nav, navDefaultBgColor);
 }
 
 document.addEventListener('scroll', () => {
-  nav.classList.remove('md:-mt-20');
   changeNavBackgroundColor();
 });
+
+//use IntersectionObserver api to show and hide nav
+const observer = new IntersectionObserver(showOrHideNav, { threshold: 0.5 });
+
+function showOrHideNav(entries, obs) {
+  entries.forEach((entry) => {
+    !entry.isIntersecting
+      ? nav.classList.remove('md:-mt-20')
+      : nav.classList.add('md:-mt-20');
+  });
+}
+
+observer.observe(bio);
