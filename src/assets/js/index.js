@@ -73,14 +73,12 @@ function changeNavBackgroundColor() {
     setElementBackgroundColor(nav, projectsBackgroundColor);
     return;
   }
-  if (
-    pageYOffset >=
-    bioHeight + projectsHeight //- navHeight //user scrolled in projects section
-  ) {
+  if (pageYOffset >= bioHeight + projectsHeight - navHeight - 62) {
     setElementBackgroundColor(nav, skillsBackgroundColor);
     return;
   }
   setElementBackgroundColor(nav, navDefaultBgColor);
+  return;
 }
 
 document.addEventListener('scroll', () => {
