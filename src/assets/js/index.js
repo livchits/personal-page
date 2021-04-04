@@ -73,7 +73,7 @@ function changeNavBackgroundColor() {
     setElementBackgroundColor(nav, projectsBackgroundColor);
     return;
   }
-  if (pageYOffset >= bioHeight + projectsHeight - navHeight - 62) {
+  if (pageYOffset >= bioHeight + projectsHeight - navHeight) {
     setElementBackgroundColor(nav, skillsBackgroundColor);
     return;
   }
