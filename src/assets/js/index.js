@@ -6,11 +6,18 @@ const selectors = [
   '#bio',
   '#projects',
   '#skills',
+  'footer',
 ];
 const getElement = (selector) => document.querySelector(selector);
-const [menuToggle, navLinks, nav, bio, projects, skills] = selectors.map(
-  getElement
-);
+const [
+  menuToggle,
+  navLinks,
+  nav,
+  bio,
+  projects,
+  skills,
+  footer,
+] = selectors.map(getElement);
 
 //highlight active menu
 function highlightLinks() {
@@ -59,13 +66,14 @@ const [navDefaultBgColor, projectsBackgroundColor, skillsBackgroundColor] = [
   skills,
 ].map(getBackgroundColor);
 
-const [
-  { offsetHeight: navHeight },
-  { offsetHeight: bioHeight },
-  { offsetHeight: projectsHeight },
-] = [nav, bio, projects];
-
 function changeNavBackgroundColor() {
+  const [
+    { offsetHeight: navHeight },
+    { offsetHeight: bioHeight },
+    { offsetHeight: projectsHeight },
+    { offsetHeight: footerHeight },
+  ] = [nav, bio, projects, footer];
+
   if (
     pageYOffset >= bioHeight - navHeight / 2 &&
     pageYOffset < bioHeight + projectsHeight - navHeight //user scrolled almost to projects section
@@ -73,7 +81,7 @@ function changeNavBackgroundColor() {
     setElementBackgroundColor(nav, projectsBackgroundColor);
     return;
   }
-  if (pageYOffset >= bioHeight + projectsHeight - navHeight) {
+  if (pageYOffset >= bioHeight + projectsHeight - (navHeight + footerHeight)) {
     setElementBackgroundColor(nav, skillsBackgroundColor);
     return;
   }
