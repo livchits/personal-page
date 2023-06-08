@@ -1,6 +1,6 @@
 # My personal page and portfolio
 
-I handcrafted this web from scratch with HTML, TailwindCSS with some plugins and JavaScript, and using Parcel as a bundler.
+I handcrafted this web from scratch using HTML, TailwindCSS with some plugins, and JavaScript. Parcel is used as a bundler.
 
 You can visit it [here](https://lucasdev.me).
 
